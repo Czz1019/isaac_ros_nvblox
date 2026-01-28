@@ -236,24 +236,24 @@ def generate_launch_description() -> LaunchDescription:
                  description='People Segmentaion model')
     args.add_arg('num_cameras', 1,
                  description='Number of cameras requiring people segmentation pipeline')
-    args.add_arg('namespace_list', '["camera0"]',
+    args.add_arg('namespace_list', '["camera"]',
                  description='List of namespaces for each segmentation inference pipeline')
 
     args.add_arg(
         'input_topic_list',
-        '["camera0/color/image_raw"]',
+        '["camera/color/image_raw"]',
         description='List of camera image input topics for each segmentation inference pipeline')
     args.add_arg(
         'input_camera_info_topic_list',
-        '["camera0/color/camera_info"]',
+        '["camera/color/camera_info"]',
         description='List of input camera info topics for each segmentation inference pipeline')
     args.add_arg(
         'output_resized_image_topic_list',
-        '["camera0/segmentation/image_resized"]',
+        '["camera/segmentation/image_resized"]',
         description='List of output resized image topics for each segmentation inference pipeline')
     args.add_arg(
         'output_resized_camera_info_topic_list',
-        '["camera0/segmentation/camera_info_resized"]',
+        '["camera/segmentation/camera_info_resized"]',
         description='List of output resized camera info topics for each segmentation pipeline')
 
     # DNN Image preprocessing parameters

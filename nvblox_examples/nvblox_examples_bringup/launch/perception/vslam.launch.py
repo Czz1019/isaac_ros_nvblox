@@ -30,7 +30,9 @@ def add_vslam(args: lu.ArgumentContainer) -> List[Action]:
     camera = NvbloxCamera[args.camera]
     # NOTE(alexmillane, 19.08.2024): At the moment in nvblox_examples we only support a single
     # camera running cuVSLAM, even in the multi-camera case: we run *nvblox* on multiple
-    # cameras, but cuVSLAM on camera0 only.
+    # cameras, but cuVSLAM on camera only.
+
+    # zhelijinxinglexiugai,duiyingdehuatimingchengbianweile'camera0'
     realsense_remappings = [
         ('visual_slam/camera_info_0', '/camera0/infra1/camera_info'),
         ('visual_slam/camera_info_1', '/camera0/infra2/camera_info'),
@@ -40,7 +42,7 @@ def add_vslam(args: lu.ArgumentContainer) -> List[Action]:
     ]
 
     # Base frame: 
-    # - camera0_link for single realsense,
+    # - camera_link for single realsense,
     # - base_link for everything else (multi realsense)
     if camera is NvbloxCamera.realsense:
         base_frame = 'camera0_link'

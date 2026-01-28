@@ -121,7 +121,16 @@ def generate_launch_description() -> LaunchDescription:
             delay=1.0,
         ))
     # People detection for multi-RS
-    camera_namespaces = ['camera0', 'camera1', 'camera2', 'camera3']
+    # camera_namespaces = ['camera0', 'camera1', 'camera2', 'camera3']
+    camera_namespaces = ['camera0']
+    # camera_input_topics = [f'/{camera_namespace}/color/image_raw']
+    # input_camera_info_topics = [f'/{camera_namespace}/color/camera_info']
+    # output_resized_image_topics = [f'/{camera_namespace}/segmentation/image_resized']
+    # output_resized_camera_info_topics = [f'/{camera_namespace}/segmentation/camera_info_resized']
+    # 
+    # num_cameras = lu.ArgumentValue(args.num_cameras)  # 获取传入的相机数量
+    # camera_namespaces = [f'camera{i}' for i in range(int(num_cameras))]
+    # 
     camera_input_topics = []
     input_camera_info_topics= []
     output_resized_image_topics = []
@@ -131,6 +140,10 @@ def generate_launch_description() -> LaunchDescription:
         input_camera_info_topics.append(f'/{ns}/color/camera_info')
         output_resized_image_topics.append(f'/{ns}/segmentation/image_resized')
         output_resized_camera_info_topics.append(f'/{ns}/segmentation/camera_info_resized')
+        # camera_input_topics.append(f'/color/image_raw')
+        # input_camera_info_topics.append(f'/color/camera_info')
+        # output_resized_image_topics.append(f'/segmentation/image_resized')
+        # output_resized_camera_info_topics.append(f'/segmentation/camera_info_resized')
 
     # People segmentation
     actions.append(
